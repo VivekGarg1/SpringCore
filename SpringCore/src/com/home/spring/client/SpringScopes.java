@@ -1,6 +1,7 @@
 package com.home.spring.client;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.home.spring.model.Message;
@@ -17,7 +18,7 @@ public class SpringScopes {
 		 
 		 Message message1 = context.getBean("message", Message.class);
 		 System.out.println(message1.getMessageId()+"\t"+message1.getMessage());
-
+		 ((AbstractApplicationContext) context).close();
 	}
 
 }
